@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas Shapes</title>
+    <style>
+      #myCanvas {
+        border: 3px solid #000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Canvas Example</h1>
+
+    <canvas class="canva" id="myCanvas" width="600" height="600"></canvas>
+
+    <script>
+      const canvas = document.getElementById("myCanvas");
+      const ctx = canvas.getContext("2d");
+
+      ctx.fillStyle = "lightblue";
+      ctx.fillRect(100, 100, 400, 300);
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 3;
+      ctx.strokeRect(100, 100, 400, 300);
+
+      ctx.beginPath();
+      ctx.arc(300, 300, 80, 0, Math.PI * 2);
+      ctx.fillStyle = "purple";
+      ctx.fill();
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(100, 100);
+      ctx.lineTo(500, 400);
+      ctx.moveTo(500, 100);
+      ctx.lineTo(100, 400);
+      ctx.strokeStyle = "red";
+      ctx.lineWidth = 4;
+      ctx.stroke();
+    </script>
+  </body>
+</html>
