@@ -10,38 +10,36 @@
             width: 200px;
             margin: 20px 45%;
             padding: 5px;
-            /* border: 2px solid red; */
-            /* box-shadow: inset 10px 20px 60px 50px gray; */
+            border: 2px solid black; 
+             box-shadow: inset 10px 20px 60px 50px gray;
 
             animation: spin 3s infinite ease-in;
         }
 
-        /* 
-        first : inset -19px -20px 60px 50px 
+        
+        /* first : inset -19px -20px 60px 50px 
         second : inset -3px -20px 60px 50px 
         third : inset 19px -20px 60px 50px 
-        second : inset -20px 14px 60px 50px         
-        */
+        second : inset -20px 14px 60px 50px          */
+       
 
         @keyframes spin {
             0% {
                 box-shadow: inset 10px 20px 60px 50px gray;
             }
 
-            25% {
-                box-shadow: inset -19px -20px 60px 50px gray;
-            }
+        
 
             50% {
-                box-shadow: inset -3px -20px 60px 50px gray;
+                box-shadow: inset -3px -20px 60px 50px blue;
             }
 
             75% {
-                box-shadow: inset 19px -20px 60px 50px gray;
+                box-shadow: inset 19px -20px 60px 50px red;
             }
 
             100% {
-                box-shadow: inset -20px 14px 60px 50px gray;
+                box-shadow: inset -20px 14px 60px 50px olivedrab;
             }
         }
 
@@ -50,7 +48,7 @@
         .img2 {
             width: 200px;
             margin: 20px 45%;
-            /* border: 2px solid red; */
+         
             filter: drop-shadow(30px 10px 1px gray);
         }
 

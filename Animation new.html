@@ -6,61 +6,50 @@
     <title>Animation</title>
     <style>
       .text {
-        font-size: 5em;
-        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
         text-transform: uppercase;
+        font-family: Arial, Helvetica, sans-serif;
         letter-spacing: 3px;
-
-        position: absolute;
-        left: -100%;
-
-        /* FIX: animation name corrected */
-        animation: moveLTR 6s linear infinite;
+        margin: 0.2em auto;
+        font-size: 5em;
       }
-
       .text:hover {
         cursor: pointer;
         transition-property: all;
         transition-duration: 7s;
-        transition-timing-function: ease;
+        /* transition-timing-function: ease; */
         transition-delay: 0ms;
-        padding: 12em;
+        padding-right: 12em;
         background: aqua;
       }
-
       img {
         width: 300px;
         height: 300px;
         margin: 3em auto;
         display: block;
-
-        /* FIX: keyframes added */
-        animation: spin 7s linear infinite;
+        /* animation */
+        animation: spin 7s linear infinite; /* short hand PROP */
       }
-
       img:hover {
         animation-play-state: paused;
         cursor: not-allowed;
         cursor: pointer;
       }
 
-      /* FIX: correct keyframes for text movement */
-      @keyframes moveLTR {
-        0% {
-          left: -100%;
-        }
-        100% {
-          left: 100%;
-        }
-      }
-
-      /* FIX: spin animation for image */
       @keyframes spin {
         0% {
           transform: rotate(0deg);
         }
         100% {
           transform: rotate(360deg);
+        }
+      }
+         @keyframes moveLTR {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
         }
       }
     </style>
