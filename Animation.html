@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Animation</title>
     <style>
+      *{
+        width: 100%;
+        height: auto;
+      }
       .text {
         text-align: center;
         text-transform: uppercase;
@@ -34,6 +38,25 @@
         animation-play-state: paused;
         cursor: not-allowed;
       }
+      .hello{
+      text-align: center;
+        text-transform: uppercase;
+        font-family: Arial, Helvetica, sans-serif;
+        letter-spacing: 3px;
+        margin: 0.2em auto;
+        font-size: 5em;
+
+      }
+       .hello:hover {
+        cursor: pointer;
+        transition-property: all;
+        transition-duration: 7s;
+        transition-timing-function: ease;
+        transition-delay: 0ms;
+        padding-right: 12em;
+        background: aqua;
+      }
+      
 
       @keyframes spin {
         0% {
@@ -48,5 +71,10 @@
   <body>
     <h1 class="text">something</h1>
     <img src="../utils/logo.png" alt="logo" />
+    <div class="New">
+    <h1 class="hello">hello Everyone</h1>
+    <img src="./utils/React-icon.svg.png" alt="">
+    </div>
+
   </body>
 </html>
