@@ -24,14 +24,36 @@
     }
     .button:hover{
         transform: translate(-50px -50px);
+        color: red;
            
-
     }
+
+     .image{
+            height:320px;
+            border-radius: 9px;
+            letter-spacing: 1px;
+            font-size: 20px;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            background-size: cover;
+            background-position: center;
+            background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+            url('./utils/nature.webp') ;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+          
+          }
+
+
+    
    
 </style>
 </head>
 <body>
  <button class="button">click me</button>
-    <!-- <img class="img" src="./utils/nature.webp" alt="nature"> -->
+    <img class="image" src="./utils/nature.webp" alt="nature">
 </body>
 </html>
