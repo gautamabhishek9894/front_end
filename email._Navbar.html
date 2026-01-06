@@ -3,29 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>legend</title>
+  <title>Document</title>
   <style>
-    .hello{
-      width: 100%;
-      height: auto;
-      border: 2px solid gray;
-    
-    }
+        fieldset {
+            width: 300px;
+            border: 2px solid #2563eb;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        legend {
+            font-size: 20px;
+            color: #2563eb;
+            padding: 5px 10px;
+        }
   </style>
 </head>
 <body>
-  <fieldset  class="hello">
-    <legend >
-      <span>hello</span>
-    </legend>
-   
-  </fieldset>
- <select value="">
-                    <option value="None"</option>
-                    <option value="ten"</option>
-                    <option value="twenty"</option>
-                    <option  value="thirty"</option>
-                    
-                </select>
+  <div class="container">
+
+<fieldset>
+    <legend>Age</legend>
+</fieldset>
+
+<select class="dropdown">
+    <option value="None">None</option>
+    <option value="Ten">Ten</option>
+    <option value="Twenty">Twenty</option>
+    <option value="Thirty">Thirty</option>
+</select>
+
+</div>
+
 </body>
-</html> 
+</html>
