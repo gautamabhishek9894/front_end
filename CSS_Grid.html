@@ -4,46 +4,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grid</title>
+    <title>Grid Square</title>
+
     <style>
-        .parent {
-            background: teal;
-            border: 1px solid #000;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            /* gap: 20px; */
-            justify-items: center;
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
             align-items: center;
-            height: 90vh;
+            background: #222;
+        }
+
+        .parent {
+            width: min(90vw, 90vh);
+            height: min(90vw, 90vh);
+            background: teal;
+            border: 2px solid #000;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            gap: 20px;
+
+            grid-template-areas:
+                "child1 child1"
+                "child3 child4"
+                "child3 child6"
+                "child7 child7"
+                "child9 child9";
         }
 
         .box {
-            width: 50px;
-            height: 50px;
-            background: tomato;
+            background: blue;
             border: 1px solid #fff;
-            text-align: center;
-            line-height: 50px;
             color: #fff;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 24px;
+            font-weight: bold;
         }
 
-        .sub-parent {
-            width: 60%;
-        }
+        .child-1 { grid-area: child1; }
+    
+        .child-3 { grid-area: child3; }
+        .child-4 { grid-area: child4; }
+        
+        .child-6 { grid-area: child6; }
+        .child-7 { grid-area: child7; }
+    
+        .child-9 { grid-area: child9; }
+        
     </style>
 </head>
 
 <body>
     <div class="parent">
-        <div class="box child-1">1</div>
-        <div class="box child-2">2</div>
-        <div class="box child-3">3</div>
-        <div class="box child-4">4</div>
-        <div class="box child-5">5</div>
-        <div class="box child-6">6</div>
-        <div class="box child-7">7</div>
-
+        <div class="box child-1">HEADER</div>
+        
+        <div class="box child-3">ARTICLE</div>
+        <div class="box child-4">TEXT 1</div>
+        
+        <div class="box child-6">TEXT 2</div>
+        <div class="box child-7">MAIN</div>
+       
+        <div class="box child-9">FOOTER</div>
+       
     </div>
 </body>
 
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Layout</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #222;
+    }
+
+    .parent {
+      width: min(90vw, 90vh);
+      height: min(90vw, 90vh);
+      background: teal;
+      border: 2px solid #000;
+
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .row {
+      display: flex;
+      gap: 20px;
+      flex: 1;
+    }
+
+    .box {
+      background: blue;
+      border: 1px solid #fff;
+      color: #fff;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-size: 24px;
+      font-weight: bold;
+      flex: 1;
+    }
+
+    /* Full width boxes */
+    .full {
+      flex: 1;
+    }
+
+    /* Article section (tall left box) */
+    .article {
+      flex: 1;
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="parent">
+
+    <!-- HEADER -->
+    <div class="row">
+      <div class="box full">HEADER</div>
+    </div>
+
+    <!-- ARTICLE + TEXT 1 -->
+    <div class="row">
+      <div class="box article">ARTICLE</div>
+      <div class="box">TEXT 1</div>
+    </div>
+
+    <!-- ARTICLE + TEXT 2 -->
+    <div class="row">
+      <div class="box article">ARTICLE</div>
+      <div class="box">TEXT 2</div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="row">
+      <div class="box full">MAIN</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="row">
+      <div class="box full">FOOTER</div>
+    </div>
+
+  </div>
+
+</body>
 </html>
