@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .parent::after{
+        display:block;
+        content:"";
+         clear:both */
+
+        .parent{
+            border: 2px solid red;
+            display: flow-root;
+        }
+
+        .child{
+            background: tomato;
+            color:teal;
+            /* float: right; */
+        }
+        .parent>.child>h1{
+            color:red;
+        }
+
+        .parent{
+            display: contents;
+        }
+
+            /* inline */
+
+        .block{
+            background: green;
+            display:inline;
+        }
+
+        .inline{
+            background: red;
+            display: block;
+        }
+     
+        /* inline-flex */
+
+        .inline-flex>div:first-child{
+            background: tomato;
+        }
+         .inline-flex>div:last-child{
+            background: teal;
+        }
+
+        .inline-flex{
+            display: inline-flex;
+            margin: 10px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">
+            <h1>hello</h1>
+        </div>
+    </div>
+
+
+    <!-- inline -->
+
+    <div class="block">hello</div>
+    <h1 class="inline">hello</h1>
+    <span class="inline">hello</span>
+    <a class="inline">hello</a>
+
+    <!-- inline-flex -->
+
+    <div class="inline-flex">
+        <div>🤞</div>
+        <div>like</div>
+    </div>
+
+
+</body>
+</html>
