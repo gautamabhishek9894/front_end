@@ -4,19 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body>*{
+            background: tomato;
+            border: 1px solid black;
+        }
+        header{
+            height: 3em;
+
+        }
+
+        header+main{
+            display: flex;
+            height: 15em;
+            padding: 5px;
+            gap: 5px;
+            /* justify-content:center 
+            align-item:center */
+        }
+
+        main+main{
+            height: 7em;
+
+        }
+        footer{
+        height: 4em;
+        }
+
+        /* .sub-child_1, */
+
+        .sec-1{
+            background: #000;
+            width: 100%;
+        }
+
+        .sec-2{
+            display: flex;
+            gap: 5px;
+            flex-direction: column;
+            width: 100%;
+
+        }
+        .sub_child_2{
+            background: wheat;
+            height: 100%;
+        }
+           .sub_child_1{
+            background: teal;
+            height: 100%;
+        }
+         main,
+         footer,
+         header{
+            margin: 1.5em 0.5em;
+         }
+    </style>
 </head>
 <body>
-    <div class="parent">
-        <div class="box child-1">HEADER</div>
-        
-        <div class="box child-3">ARTICLE</div>
-        <div class="box child-4">TEXT 1</div>
-        
-        <div class="box child-6">TEXT 2</div>
-        <div class="box child-7">MAIN</div>
-       
-        <div class="box child-9">FOOTER</div>
-       
-    </div>
+   <header></header>
+   <main>
+    <section class="sec-1"></section>
+    <section class="sec-2">
+        <section class="sub_child_1"></section>
+        <section class="sub_child_2"></section>
+    </section>
+   </main>
+   <main></main>
+   <footer></footer>
 </body>
 </html>
