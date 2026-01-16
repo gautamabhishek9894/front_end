@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* these is container 2 with flex Grow */
+        .box{
+            border: 2px solid red;
+            text-align: center;
+
+        }
+        .container{
+            display: flex;
+            border: 2px solid forestgreen;
+        }
+        .one{
+            background: tomato;
+            flex-grow: 1;
+        }
+         .two{
+            background: greenyellow;
+            flex-grow: 2;
+        }
+         .three{
+            background: teal;
+            flex-grow: 1;
+        }
+        /* these is container 2 with flex shrink  */
+        .box_2{
+            border: 2px solid red;
+            text-align: center;
+            width:600px;
+            
+
+        }
+        .container_2{
+            display: flex;
+            border: 2px solid forestgreen;
+            margin: 1rem 0;
+            padding: 1rem 0.5em ;
+        }
+        .one_2{
+            background: tomato;
+            flex-shrink: 1;
+            width: 200px;
+        }
+         .two_2{
+            background: greenyellow;
+            flex-shrink: 2;
+            width: 200px;
+        }
+         .three_2{
+            background: teal;
+            flex-shrink: 1;
+            
+        }
+        /* these is container 2 with flex basis */
+        .box_3{
+            border: 2px solid red;
+             text-align: center;
+            width:600px;
+        
+
+        }
+        .container_3{
+            display: flex;
+            border: 2px solid forestgreen;
+            margin: 1rem 0;
+            padding: 1rem 0.5em ;
+        }
+        .one_3{
+            background: tomato;
+            flex-grow: 4;
+            flex-basis: 100px;
+        }
+         .two_3{
+            background: greenyellow;
+            flex-basis: 200px;
+        }
+         .three_3{
+            background: teal;
+            flex-basis: 200px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>hello</h1>
+    <!-- flex-Grow  -->
+     <div class="container">
+        <div class="box one">one</div>
+        <div class="box two">two</div>
+        <div class="box three">three</div>
+     </div>
+     <!--  flex-Shrink  -->
+     <div class="container_2">
+        <div class="box_2 one_2">one</div>
+        <div class="box_2 two_2">two</div>
+        <div class="box_2 three_2">three</div>
+     </div>
+
+          <!-- flex basis  -->
+     <div class="container_3">
+        <div class="box_3 one_3">one</div>
+        <div class="box_3 two_3">two</div>
+        <div class="box_3 three_3">three</div>
+     </div>
+
+   
+
+</body>
+</html>
