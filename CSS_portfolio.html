@@ -122,13 +122,15 @@ body{
     height: 50px;
     background: #000;
 }
-.logos {
+.imgcon {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  opacity: 0.6;
-  padding: 30px 0 60px;
-  font-size: 14px;
+  justify-content: space-evenly;
+  align-self: center;
+}
+.imgcon>.img{
+    width: 20px;
+    height: auto;
+
 }
 </style>
 </head>
@@ -171,12 +173,14 @@ body{
 
 </div>
     <div class="logos">
-    <img src="./utils/n bank.jpg" alt="">
-    <img src="./utils/mattericon.jpg" alt="">
-    <img src="./utils/coco cola.png" alt="">
-    <img src="./utils/Adobe.webp" alt="">
-    <img src="./utils/Subway.png" alt="">
-    <img src="./utils/code.png" alt="">
+   <div class="imgcon">
+    <div class="img img1" style="background-image: url(./utils/n\ bank.jpg);"></div>
+    <div class="img img2" style="background-image: url(./utils/mattericon.jpg);"></div>
+    <div class="img img3" style="background-image: url(./utils/coco\ cola.png);"></div>
+    <div class="img img4" style="background-image: url(./utils/Adobe.webp);"></div>
+    <div class="img img5" style="background-image: url(./utils/Subway.png);"></div>
+    <div class="img img6" style="background-image: url(./utils/code.png);"></div>
+   </div>
     </div>
 </div>
 
