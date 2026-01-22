@@ -16,22 +16,16 @@
 }
 
 body{
-    background:#8c8c84;
-    display:flex;
-    justify-content:center;
-    padding:40px;
-}
-
-
-.hero{
-    width:100%;
+    background:gray;
+    padding:40px 20px;
     max-width:1100px;
+    margin:auto;
+}
+.hero{
     background:#b6b3ac;
-    border-radius:30px;
+    border-radius:35px;
     padding:35px 40px 60px;
 }
-
-
 .top-bar{
     display:flex;
     justify-content:space-between;
@@ -55,7 +49,6 @@ body{
 }
 
 .top-right a{
-    margin-left:15px;
     text-decoration:none;
     color:#111;
     font-size:13px;
@@ -77,17 +70,18 @@ body{
 }
 
 .name-tag{
-    margin-top:8 px;
+    margin-top:8px;
     background:#fff;
     padding:6px 14px;
     border-radius:20px;
     font-size:12px;
 }
 
+
 .hero-title{
     margin-top:30px;
     text-align:center;
-    font-size:42px;
+    font-size:44px;
     font-weight:700;
     line-height:1.2;
     color:#111;
@@ -100,87 +94,135 @@ body{
 }
 
 .hero-btn button{
-    padding:14px 30px;
+    padding:14px 34px;
     background:#111;
     color:#fff;
     border:none;
-    border-radius:25px;
+    border-radius:30px;
     font-size:14px;
     cursor:pointer;
 }
 
 
 
+.imgcon{
+    background:#ffff;
+    border-radius:35px;
+    padding:30px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
 
-@media(max-width:600px){
+/* LOGO */
+.img{
+    width:100px;
+    height:60px;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center;
+    opacity:0.75;
+}
+.collab{
+    margin-top: 80px;
+    text-align: center;
+}
+.line{
+    width:100%;
+    height:3px;
+    background:black;
+    margin:40px 0;
+}
+.footer{
+    display: flex;
+   justify-content: space-evenly;
+   margin-top: 10px;
+}
+.text{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+
+/* RESPONSIVE */
+@media(max-width:768px){
     .hero-title{
-        font-size:30px;
+        font-size:32px;
     }
-}
-.new_class{
-    width: 100px;
-    height: 50px;
-    background: #000;
-}
-.imgcon {
-  display: flex;
-  justify-content: space-evenly;
-  align-self: center;
-}
-.imgcon>.img{
-    width: 20px;
-    height: auto;
 
+    .imgcon{
+        justify-content:space-between;
+        gap:25px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="hero">
+<div class="wrapper">
 
-   
-    <div class="top-bar">
-        <div class="top-left">
-            <span>abhishekgautam@gmail.com</span>
-            <button class="small-btn">Copy</button>
-            <button class="small-btn">CV</button>
+    <div class="hero">
+
+        <div class="top-bar">
+            <div class="top-left">
+                <span>abhishekgautam@gmail.com</span>
+                <button class="small-btn">Copy</button>
+                <button class="small-btn">CV</button>
+            </div>
+
+            <div class="top-right">
+                <a href="#">LinkedIn</a> /
+                <a href="#">Dribbble</a> /
+                <a href="#">Instagram</a>
+            </div>
         </div>
 
-        <div class="top-right">
-            <a href="#">LinkedIn</a>/<a href="#">Dribbble</a>/
-            <a href="#">Instagram</a>
+        <div class="profile">
+            <img src="./utils/profile icon.jpg" alt="profile">
+            <span class="name-tag">Abhishek Gautam 👋</span>
+        </div>
+
+        <h1 class="hero-title">
+            Building digital<br>
+            products, brands, and<br>
+            experience.
+        </h1>
+
+        <div class="hero-btn">
+            <button>Latest shots ↗</button>
         </div>
     </div>
 
-    <div class="profile">
-        <img src="\utils\profile icon.jpg" alt="profile">
-        <span class="name-tag">Abhishek gautam
-            👋</span>
-    </div>
-
-    
-    <h1 class="hero-title">
-        Building digital<br>
-        products, brands, and<br>
-        experience.
-    </h1>
-
-    
-    <div class="hero-btn">
-        <button>Latest shots ↗</button>
-    </div>
-
-</div>
     <div class="logos">
-   <div class="imgcon">
-    <div class="img img1" style="background-image: url(./utils/n\ bank.jpg);"></div>
-    <div class="img img2" style="background-image: url(./utils/mattericon.jpg);"></div>
-    <div class="img img3" style="background-image: url(./utils/coco\ cola.png);"></div>
-    <div class="img img4" style="background-image: url(./utils/Adobe.webp);"></div>
-    <div class="img img5" style="background-image: url(./utils/Subway.png);"></div>
-    <div class="img img6" style="background-image: url(./utils/code.png);"></div>
-   </div>
+        <div class="imgcon">
+            <div class="img" style="background-image:url('./utils/n bank.jpg')"></div>
+            <div class="img" style="background-image:url('./utils/mattericon.jpg')"></div>
+            <div class="img" style="background-image:url('./utils/coco cola.png')"></div>
+            <div class="img" style="background-image:url('./utils/Adobe.webp')"></div>
+            <div class="img" style="background-image:url('./utils/Subway.png')"></div>
+            <div class="img" style="background-image:url('./utils/code.png')"></div>
+        </div>
+    </div>
+
+    <div class="collab">
+        <h2>Collaborate withn brands and agencies<br>
+        to create impactful results.</h2>
+    </div>
+    <div class="line"></div>
+    <div class="footer">
+        <h4>UX $ UI</h4>
+        <h4>Web & Mobile app</h4>
+        <h4>Design & Creative</h4>
+        <h4>Development</h4>
+    </div>
+    <div class="text">
+        <span>Lorem ipsum  elit.  aspernatur expedita <br>fugit maiores est!</span>
+        <span>Lorem ipsum  elit.  aspernatur expedita <br>fugit maiores est!</span>
+        <span>Lorem ipsum  elit.  aspernatur expedita <br>fugit maiores est!</span>
+        <span>Lorem ipsum  elit.  aspernatur expedita <br>fugit maiores est!</span>
     </div>
 </div>
 
