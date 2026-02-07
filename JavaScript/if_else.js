@@ -56,9 +56,14 @@ else{
     console.log("its not a leap year");
 }
 
-// stufent score is  given, print the grade based on the 90-100->A, 80-89->B, 70-79->C, 60-69->D, below 60->F.
+/*student score is  given, print the grade based on the 
+ 90-100->A, 
+ 80-89->B, 
+ 70-79->C,
+ 60-69->D,
+  below 60->F. */
 
-let score = 85;
+let score = 95;
 
 if (score >= 90 && score <= 100) {
     console.log("Grade: A");
@@ -75,4 +80,78 @@ else if (score >= 60 && score <= 69) {
 else {
     console.log("Grade: F");
 }
+
+/* Cotegorized the person by age:
+0-12 ->child
+13-19 ->teenagar
+20-59 ->adult
+60 above ->senior citizon.*/
+
+let age = 25; 
+
+if (age >= 0 && age <= 12) {
+    console.log("Child");
+} 
+else if (age >= 13 && age <= 19) {
+    console.log("Teenager");
+} 
+else if (age >= 20 && age <= 59) {
+    console.log("Adult");
+} 
+else if (age >= 60) {
+    console.log("Senior Citizen");
+} 
+else {
+    console.log("Invalid age");
+}
+
+/* check the charecter os vowel or consonent. */
+
+let ch = 's';   
+if (
+    ch === 'a' || ch === 'e' || ch === 'i' || ch === 'o' || ch === 'u' ||
+    ch === 'A' || ch === 'E' || ch === 'I' || ch === 'O' || ch === 'U'
+) {
+    console.log("Vowel");
+} 
+else {
+    console.log("Consonant");
+}
+
+/*check if  the number is divisible by both 3 and 5. */
+
+let num5 = 16;   
+
+if (num5 % 3 === 0 && num5 % 5 === 0) {
+    console.log("Number is divisible by both 3 and 5");
+} 
+else {
+    console.log("Number is NOT divisible by both 3 and 5");
+}
+
+/*A temperature is given, print:
+<=10 celcius ->cold
+11-25 celcius ->moderate
+>=25 celcius ->hot.*/
+
+let temp = 5;
+
+if (temp <= 10) {
+    console.log("cold");
+}
+else if (temp >= 11 && temp <= 25) {
+    console.log("pleasant");
+}
+else if (temp > 25) {
+    console.log("hot");
+}
+else {
+    console.log("Invalid temperature");
+}
+
+
+
+
+
+
 
