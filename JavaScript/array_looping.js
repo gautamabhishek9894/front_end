@@ -29,7 +29,7 @@ for(i=0;i<array.length;i++){
 //     }
 //     else{
 //         console.log(`this is odd number :- ${i}`)
-        
+      
 //     }
 // }
 
@@ -58,3 +58,6 @@ for(i=0;i<array.length;i++){
 for(let i=1;i<=10;i++){
     console.log(`${i**3}`);
 }
+
+
+
