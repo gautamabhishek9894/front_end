@@ -29,10 +29,26 @@ arr1.push(3,'abhishek',5);
 Array.prototype.dhakelo=function(value){
     let index=this.length;
     this[index]=value;
-};
-
+}
 arr1.dhakelo(7);
 console.log(arr1);
+
+// Pop
+let arr3=[4,5,6,7,8];
+arr3.pop();
+Array.prototype.nikalo=function(value){
+    let index=this.length;
+    this[index]=value;
+}
+arr3.nikalo();
+console.log(arr3);         
+
+
+
+
+
+
+
 
  
  
