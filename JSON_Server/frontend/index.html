@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>todo CRUD-method with server</title>
+    <style>
+      /* #todo {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        justify-items: center;
+        align-items: center;
+      } */
+      .card_div {
+        /* border: 2px solid red; */
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 1.2rem;
+      }
+    </style>
+  </head>
+  <body onload="Render_UI()">
+    <div id="input_and_btn">
+      <input type="text" placeholder="enter todo..." id="value" />
+      <button onclick="addTodo()">add</button>
+    </div>
+    <!-- below this we get all the todo -->
+    <div id="todo"></div>
+  </body>
+  <script src="./index.js"></script>
+</html>
