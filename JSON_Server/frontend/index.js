@@ -1,4 +1,4 @@
-const Base_URL = ' http://localhost:8080/todo';
+const Base_URL =  'http://localhost:8080/todo';
 
 const fetchData = async () => {
   let res = await fetch(Base_URL);
@@ -25,9 +25,10 @@ const addTodo = () => {
 
 const Render_UI = async () => {
   const apiData = await fetchData();
+  if(typeof apiData=='object'&& !Array.isArray(apiData))return;
 
   const main = document.querySelector('#todo');
-
+  console.log(apiData);
   apiData?.forEach((items) => {
     const cardDiv = document.createElement('div');
     cardDiv.className = 'card_div';
@@ -44,13 +45,23 @@ const Render_UI = async () => {
     text.innerText = items.text;
     editButton.innerText = 'edit';
     deleteButton.innerText = 'delete';
+    editButton.addEventListener('click',()=>{
+      const singleValue=apiData 
+      ?.filter((el)=>el.id==items.id)
+      .map((el)=>(el.id==items.id ?
+        {...el, isEdit:true}:el));
+        fetch(`${Base_URL}/${items.id}`,{
+          method:'DELETE',
+          headers:{
+            'Content-Type':'application/json',
+          },
+        });
+    });
     cardDiv.append(checkBox, id, text, editButton, deleteButton);
-
     main.append(cardDiv);
   });
-
   /* apiData?.map((items) => {
-    console.log('🚀 ~ items:', items);
+    console.log(' ~ items:', items);
     sub_child.innerHTML = `
       <input type="checkbox" />
       <h2>${items.id}</h2>
@@ -61,5 +72,5 @@ const Render_UI = async () => {
     cardDiv.append(sub_child);
   });
   main.append(cardDiv);
-  console.log('🚀 ~ main:', main); */
+  console.log(' ~ main:', mai-n); */
 };

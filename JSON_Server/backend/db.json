@@ -1,10 +1,22 @@
 {
-  "todo":[
+  "todo": [
     {
-      "id":1,
-      "text":"hello",
-      "isLoading":false,
-      "isError":false
+      "id": 1,
+      "text": "hello",
+      "isComplete": false,
+      "isError": false
+    },
+    {
+      "id": 2,
+      "text": "hello",
+      "isLoading": false,
+      "isError": false
+    },
+    {
+      "text": "this is code",
+      "isEdit": false,
+      "isCompleted": false,
+      "id": 3
     }
   ]
 }
