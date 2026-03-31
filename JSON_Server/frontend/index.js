@@ -1,176 +1,137 @@
-const base_URL = "http://localhost:8080/todo";
+let dataBase = JSON.parse(localStorage.getItem(localStorage.key(0))) || [];
 
-const fetchData = async () => {
-  let res = await fetch(base_URL);
-  let data = await res.json();
-  return data;
-};
+const addTodo = () => {
+  const value = document.querySelector('#taskVal').value;
 
-const addTodo = (e) => {
-  e.preventDefault();
-
-  const textValue = document.querySelector("#value").value;
+  if (value.trim() === '') return;
 
   const todo = {
-    text: textValue,
-    isEdit: false,
-    isCompleted: false,
+    id: Date.now(),
+    text: value,
+    isEdits: false,
+    isComplete: false,
   };
 
-  fetch(base_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(todo),
-  }).then(() => Render_UI());
+  dataBase.push(todo);
+
+  localStorage.setItem('todo', JSON.stringify(dataBase));
+  document.querySelector('#taskVal').value = '';
+  Render_UI();
 };
 
-const Render_UI = async () => {
-  const apiData = await fetchData();
+// read
 
-  if (typeof apiData !== "object" || !Array.isArray(apiData)) return;
+const Render_UI = () => {
+  const mainDiv = document.querySelector('#todo');
 
-  const main = document.querySelector("#todo");
-  main.innerHTML = "";
+  mainDiv.innerHTML = '';
 
-  console.log("apiData:", apiData);
+  if (!Array.isArray(dataBase)) {
+    localStorage.removeItem(localStorage.key(0));
+  }
 
-  apiData.forEach((items) => {
-    const cardDiv = document.createElement("div");
-    cardDiv.className = "card_div";
+  dataBase &&
+    dataBase?.forEach((element) => {
+      const cardDiv = document.createElement('div');
 
-    const id = document.createElement("h2");
-    const text = document.createElement("h2");
-    const editButton = document.createElement("button");
-    const deleteButton = document.createElement("button");
+      const text = document.createElement('h3');
 
-    // we can create 4 button
-    const cancelButton = document.createElement("button");
-    const confirmButton = document.createElement("button");
+      const inputCheckBox = document.createElement('input');
 
-    const inputField = document.createElement("input");
+      const inputEdits = document.createElement('input');
 
-    const checkBox = document.createElement("input");
-    checkBox.type = "checkbox";
-    checkBox.checked = items.isCompleted;
+      const editBtn = document.createElement('button');
 
-    id.innerText = items.id;
-    text.innerText = items.text;
-    text.className = "text";
+      const deleteBtn = document.createElement('button');
 
-    inputField.className = "inputField";
-    inputField.name = "editField";
+      const confirmBtn = document.createElement('button');
 
-    // ===== edit & delete btn start =====
-    editButton.innerText = "edit";
-    deleteButton.innerText = "delete";
+      const cancelBtn = document.createElement('button');
 
-    editButton.className = "edit";
-    deleteButton.className = "delete";
-    // ===== edit & delete btn end =====
+      inputCheckBox.type = 'checkbox';
+      text.textContent = element.text;
 
-    // ===== cancel & confirm btn start =====
-    cancelButton.innerText = "cancel";
-    confirmButton.innerText = "confirm";
+      cardDiv.style =
+        'display:flex;justify-content:center;align-items:center; gap:1rem ';
 
-    cancelButton.className = "cancel";
-    confirmButton.className = "confirm";
-    // ===== cancel & confirm btn end =====
+      editBtn.textContent = 'edit';
+      deleteBtn.textContent = 'delete';
 
-    // we have to toggle the button
-    if (items.isEdit) {
-      text.style.display = "none";
-      inputField.style.display = "block";
-      editButton.style.display = "none";
-      deleteButton.style.display = "none";
-      confirmButton.style.display = "block";
-      cancelButton.style.display = "block";
-      inputField.value = items.text;
-    } else {
-      text.style.display = "block";
-      inputField.style.display = "none";
-      editButton.style.display = "block";
-      deleteButton.style.display = "block";
-      confirmButton.style.display = "none";
-      cancelButton.style.display = "none";
-    }
+      cancelBtn.textContent = 'cancel';
+      confirmBtn.textContent = 'confirm';
 
-    editButton.addEventListener("click", () => {
-      const singleValue = apiData
-        ?.filter((el) => el.id === items.id)
-        .map((el) =>
-          el.id === items.id ? { ...el, isEdit: true } : el
+      inputEdits.value = element.text;
+
+      if (element.isEdits) {
+        text.style = 'display:none';
+        editBtn.style = 'display:none';
+        deleteBtn.style = 'display:none';
+
+        cancelBtn.style = 'display:block';
+        confirmBtn.style = 'display:block';
+      } else {
+        cancelBtn.style = 'display:none';
+        confirmBtn.style = 'display:none';
+        inputEdits.style = 'display:none';
+
+        text.style = 'display:block';
+        editBtn.style = 'display:block';
+        deleteBtn.style = 'display:block';
+      }
+
+      confirmBtn.onclick = function () {
+        localStorage.setItem('todo', JSON.stringify(dataBase));
+        let confirmData = dataBase.map((el) =>
+          el.id === element.id
+            ? { ...el, text: inputEdits.value, isEdits: false }
+            : el,
         );
+        dataBase = confirmData;
+        Render_UI();
+      };
 
-      fetch(${base_URL}/${items.id}, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(...singleValue),
-      }).then(() => Render_UI());
+      cancelBtn.onclick = function () {
+        let editData = dataBase.map((el) =>
+          el.id === element.id ? { ...el, isEdits: false } : el,
+        );
+        dataBase = editData;
+        localStorage.setItem('todo', JSON.stringify(dataBase));
+        Render_UI();
+      };
+
+      editBtn.onclick = function () {
+        let editData = dataBase.map((el) =>
+          el.id === element.id ? { ...el, isEdits: true } : el,
+        );
+        dataBase = editData;
+        localStorage.setItem('todo', JSON.stringify(dataBase));
+        Render_UI();
+      };
+
+      deleteBtn.onclick = function () {
+        dataBase.splice(
+          dataBase.findIndex((el) => el.id === element.id),
+          1,
+        );
+        console.log('🚀 ~ dataBase:', dataBase);
+
+        localStorage.setItem('todo', JSON.stringify(dataBase));
+        Render_UI();
+      };
+
+      cardDiv.append(
+        inputCheckBox,
+        text,
+        inputEdits,
+        editBtn,
+        deleteBtn,
+        cancelBtn,
+        confirmBtn,
+      );
+      mainDiv.append(cardDiv);
     });
-
-    deleteButton.addEventListener("click", () => {
-      fetch(${base_URL}/${items.id}, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }).then(() => Render_UI());
-    });
-
-    confirmButton.addEventListener("click", () => {
-      fetch(${base_URL}/${items.id}, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          text: inputField.value,
-          isEdit: false,
-        }),
-      }).then(() => Render_UI());
-    });
-
-    cancelButton.addEventListener("click", () => {
-      fetch(${base_URL}/${items.id}, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          isEdit: false,
-        }),
-      }).then(() => Render_UI());
-    });
-
-    checkBox.addEventListener("change", () => {
-      fetch(${base_URL}/${items.id}, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          isCompleted: checkBox.checked,
-        }),
-      });
-    });
-
-    cardDiv.append(
-      checkBox,
-      id,
-      text,
-      inputField,
-      editButton,
-      deleteButton,
-      cancelButton,
-      confirmButton
-    );
-
-    main.append(cardDiv);
-  });
 };
 
-Render_UI();
+document.addEventListener('DOMContentLoaded', function () {
+  Render_UI();
+});

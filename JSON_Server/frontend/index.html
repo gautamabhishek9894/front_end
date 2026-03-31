@@ -1,33 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>todo CRUD-method with server</title>
-    <style>
-      /* #todo {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        justify-items: center;
-        align-items: center;
-      } */
-      .card_div {
-        /* border: 2px solid red; */
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        gap: 1.2rem;
-      }
-      
-    </style>
-  </head>
-  <body onload="Render_UI()">
-    <form id="input_and_btn" onsubmit="addTodo(event)">
-      <input type="text" placeholder="Enter  todo..." id="value"/>
-      <button type="submit" class="btn">add</button>
-    </form>
-    <!-- below thse we get all todo -->
-     <div id="todo"></div>
-  </body>
-  <script src="./index.js"></script>
-</html> 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 style="text-align: center;">Local Storage Todo</h1>
+<div
+style=" display: flex; justify-content: center; align-items:center; gap :1.5rem;">
+<input type="text"; placeholder="Enter Task..." id="taskVal"/>
+<button onclick="addTodo()">add</button>
+</div>
+<div id="todo"></div>
+</body>
+<script src="./index.js"></script>
+</html>
