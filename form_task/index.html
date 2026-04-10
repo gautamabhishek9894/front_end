@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+</head>
+<body>
+    <header></header>
+    
+
+    <div id="data"></div>
+</body>
+<script type="module">
+    import { Navbar, All_style, signup } from './index.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelector('header').innerHTML = Navbar();
+
+        document.head.querySelector('style').innerHTML = All_style();
+
+        document.querySelector('#data').innerHTML = signup();
+
+        document.getElementById('signup').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            let user = {
+                name: document.querySelector('#name').value.trim() || '',
+                email: document.querySelector('#email').value.trim() || '',
+                phone: document.querySelector('#phone').value.trim() || '',
+                pass: document.querySelector('#pass').value.trim() || '',
+                confirm_pass:
+                    document.querySelector('#confirm_pass').value.trim() || '',
+            };
+            // console.log('🚀 ~ user:', user);
+
+            let isValidate = validation(user); // true || false
+
+            if (isValidate) {
+                localStorage.setItem('user', JSON.stringify(user));
+                alert('you have been successfully signup ✔️');
+            }
+        });
+    });
+
+    const validation = (data) => {
+    let isValid = true;
+
+    const msg = document.querySelectorAll('.message');
+
+    
+    msg.forEach((el) => (el.innerHTML = ''));
+
+
+    if (data.name.trim().length === 0) {
+    msg[0].innerHTML = "Please enter your name";
+    isValid = false;
+    }
+    else if (data.name.length > 10) {
+        msg[0].innerHTML = 'Name must be 1–10 characters';
+        isValid = false;
+    }
+
+    if(data.email.trim().length===0) {
+        msg[1].innerHTML = "Please enter your email";
+        isValid = false;
+    }
+    else if(data.email.indexOf('@') <= 0) { 
+        msg[1].innerHTML = "Email must contain '@' and not at start";
+        isValid = false;
+    }
+    else if (
+        !data.email.endsWith('.com') &&
+        !data.email.endsWith('.in')
+    ) {
+        msg[1].innerHTML = 'Use valid domain (.com / .in)';
+        isValid = false;
+    }
+
+    
+    let phoneRegx = /^[0-9]{10}$/;
+
+    if(data.phone.trim().length===0){
+        msg[2].innerHTML = "Please enter your phone number";
+        isValid=false;
+    }
+    else if (!phoneRegx.test(data.phone)) {
+        msg[2].innerHTML = 'Phone must be 10 digits';
+        isValid = false;
+    }
+
+    
+    let passRegx = /^(?=.*[@#$%.!*])(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{10,}$/;
+    
+    if(data.phone.trim().length===0){
+        msg[3].innerHTML = "Please enter password";
+        isValid=false;
+    }
+    else if (!passRegx.test(data.pass)) {
+        msg[3].innerHTML =
+            'Password must contain special char, uppercase, lowercase, number, and be at least 10 characters';
+        isValid = false;
+    }
+
+    if(data.confirm_pass.trim().length===0){
+        msg[4].innerHTML = "Please enter confirm password";
+        isValid=false;
+    }
+    else if (data.pass !== data.confirm_pass) {
+        msg[4].innerHTML = 'Passwords do not match';
+        isValid = false;
+    }
+
+    return isValid;
+
+    // console.log(user)    
+};
+</script>
+</html>
