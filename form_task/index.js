@@ -1,15 +1,5 @@
-/*
-task 0. validation's
-task 1. form value LS
-
-- app
-    - signup
-    - login >> generate token
-    - use table 'crud'
-*/
-
 export const All_style = () => {
-    return `* {
+  return ` * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -17,141 +7,169 @@ export const All_style = () => {
         text-decoration: none;
         text-transform: capitalize;
         font-weight: 600;
-    }
-
-    h1 {
+      }
+      h1 {
         text-align: center;
         margin: 1rem 0;
-    }
-
-    nav {
+      }
+      nav {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
         gap: 1.5rem;
+        box-shadow: 10px 10px 40px 2px gray;
         padding: 20px;
-        width:300px;
-        margin:auto;
-        margin-top:20px;
-        }
+      }
 
-    ul {
+      ul {
         display: contents;
-    }
-    
-    h3 {
-        text-align:center;
-        font-size:30px;
-    }
-    .signup_form {
-         display:flex;
-         align-items:center;
-         justify-content:center;
-         }
-         
-         form {
-            border:2px solid red;
-        
-        width:450px;
-        padding:20px;
-    }
+      }
+      
+      form{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:1.5rem; 
+      width:60% ;   
+      margin:auto;
+      flex-wrap:wrap
+      padding:3rem 0
+      }
 
-   .inputs > input{
-        width:300px;
-   }
-    
-   .submit {
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        margin-top:10px;
-   }
+    form>div:first-child{
+      display:flex;
+      flex-direction:column
+      }   
+      
+      div[name="btn"]{
+      display:flex;
+      justify-content:center;
+      padding:1.5rem 0px
+      }
 
-   .submit > button {
-   width:100px;
-   height:50px;
-   border-radius:50px;
-   border:2px solid blue;
-   }
+      div[name="btn"]>input, fieldset{
+      padding:10px 20px
+      }     
 
-    form > div:first-child {
-        display: flex;
-        flex-direction: column;
-    }
+      .message{
+      color:red;
+      font-size:0.9rem;
+      margin-top:5px;
+      }
 
-    div[name="btn"] {
-        display: flex;
-        justify-content: center;
-        padding: 1.5rem 0px;
-    }
-
-    div[name="btn"] > input, fieldset {
-        padding: 10px 20px;
-    }
-
-    .message {
-     color : red;
-     margin-top:05px;
-    }
-    `;
+      header{
+      cursor:pointer;
+      }
+      `;
 };
 
 export const Navbar = () => {
-    return `
-    <nav>
-        <ul>
-            <li>signup</li>
-            <li>login</li>
-            <li>all_user</li>
-        </ul>
+  return ` <nav>
+      <ul>
+        <li id="signupNav">signup</li>
+        <li id="loginNav">login</li>
+        <li id="adminNav">all_user</li>
+      </ul>
     </nav>
     `;
 };
 
 export const signup = () => {
-    return `
-   <div class="signup_form">
-    <form id="signup">
-        <div class="inputs">
-        <h3>SignUp</h3>
+  return `
+    <form id="signupForm">
+        <div>
+            <div>
                 <label for="name">name</label>
                 <input id="name" type="text">
                 <span class="message"></span>
-            <br>
+            </div>
+            <br>           
+            
+            <div>
                 <label for="email">email</label>
                 <input id="email" type="text">
                 <span class="message"></span>
+            </div>
             <br>
+
+            <div>
                 <label for="phone">phone</label>
                 <input id="phone" type="text">
                 <span class="message"></span>
+            </div>
+
+        </div>
+
+            <div>
             <br>
-                <label for="pass">password</label>
-                <input id="pass" type="text">
-                <span class="message"></span>
+                <div>
+                    <label for="pass">password</label>
+                    <input id="pass" type="text">
+                    <span class="message"></span>
+                </div>
             <br>
-                <label for="confirm_pass">confirm password</label>
-                <input id="confirm_pass" type="text">
-                <span class="message"></span>
-     </div>
+
+
+                <div>
+                    <label for="confirm_pass">confirm password</label>
+                    <input id="confirm_pass" type="text">
+                    <span class="message"></span>
+                </div>
             <br>
-                <fieldset>
+
+
+                <div>
+                    <fieldset>
                     <legend>gender</legend>
                     <label for="male">male</label>
                     <input id="male" value="male" name="gender" type="radio" />
-                    
+
                     <label for="female">female</label>
                     <input id="female" value="female" name="gender" type="radio" />
 
                     <label for="other">other</label>
                     <input id="other" value="other" name="gender" type="radio" />
-                </fieldset>
-            <div class="submit">
-        <button type="sumbit" >submit</button>
-        </div>
+                    </fieldset>
+                </div>
+
+            </div>
+
+            <input type="submit" value="button">
     </form>
-    </div>
+   
+    
     `;
 };
 
-export const Login = () => {};
+export const login = () => {
+  return ` <form id="loginForm">
+            <div>         
+                    <div>
+                        <label for="email">email</label>
+                        <input id="email" type="text">
+                        <span class="message"></span>
+                    </div>
+                <br>
+                    <div>
+                        <label for="pass">password</label>
+                        <input id="pass" type="text">
+                        <span class="message"></span>
+                    </div>
+                <br>                
+            </div>
+                <input type="submit" value="login">
+            </form>
+    
+    `;
+};
+
+export const admin = () => {
+  if (data.email === 'admin' && data.pass === 'admin123') {
+  }
+  //
+  /* 
+  192.158.1.1
+  user:admin
+  pass:admin123  
+  */
+};
