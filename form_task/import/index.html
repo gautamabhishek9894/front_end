@@ -13,24 +13,40 @@
     <div id="data"></div>
   </body>
   <script type="module">
-    import { Navbar, All_style, signup, login } from './index.js';
+    import {
+      Navbar,
+      All_style,
+      signup,
+      login,
+      admin,
+    } from '../export/index.js';
 
     document.addEventListener('DOMContentLoaded', () => {
       document.querySelector('header').innerHTML = Navbar();
 
       document.head.querySelector('style').innerHTML = All_style();
 
+      const token = localStorage.getItem('token');
+
       //  logic of history
-      // code....
 
-      document.querySelector('#data').innerHTML = signup();
+      let history = localStorage.getItem('history') || '';
 
-      //  *****routes start***** //
+      if (history === 'login') {
+        document.querySelector('#data').innerHTML = login();
+      } else if (history === 'admin') {
+        document.querySelector('#data').innerHTML = admin();
+      } else {
+        document.querySelector('#data').innerHTML = signup();
+      }
+
+      //  ** routes start ** //
 
       // login
       document
         .getElementById('loginNav')
         .addEventListener('click', function () {
+          localStorage.setItem('history', 'login');
           document.querySelector('#data').innerHTML = login();
         });
 
@@ -38,6 +54,7 @@
       document
         .getElementById('signupNav')
         .addEventListener('click', function () {
+          localStorage.setItem('history', 'signup');
           document.querySelector('#data').innerHTML = signup();
         });
 
@@ -45,10 +62,15 @@
       document
         .getElementById('adminNav')
         .addEventListener('click', function () {
-          document.querySelector('#data').innerHTML = admin();
+          if (token) {
+            localStorage.setItem('history', 'admin');
+            document.querySelector('#data').innerHTML = admin();
+          }
+          alert('please login first??');
+          return;
         });
 
-      // ***** routes end***** //
+      // ** routes end** //
 
       // login code
 
@@ -66,7 +88,7 @@
           console.log(user);
 
           // if (!user.email && !user.pass) {
-          //   alert('****please fill each and every input****');
+          //   alert('*please fill each and every input*');
           // } else {
           //   userData&&userData.map(el=>{
 
@@ -76,30 +98,35 @@
       }
 
       //  signup code
-      document.querySelector('#signupForm').addEventListener('submit', (e) => {
-        e.preventDefault();
+      if (document.querySelector('#signupForm')) {
+        document
+          .querySelector('#signupForm')
+          .addEventListener('submit', (e) => {
+            e.preventDefault();
 
-        let user = {
-          name: document.querySelector('#name').value.trim() || '',
+            let user = {
+              name: document.querySelector('#name').value.trim() || '',
 
-          email: document.querySelector('#email').value.trim() || '',
+              email: document.querySelector('#email').value.trim() || '',
 
-          phone: document.querySelector('#phone').value.trim() || '',
+              phone: document.querySelector('#phone').value.trim() || '',
 
-          pass: document.querySelector('#pass').value.trim() || '',
+              pass: document.querySelector('#pass').value.trim() || '',
 
-          confirm_pass:
-            document.querySelector('#confirm_pass').value.trim() || '',
-        };
-        // console.log('🚀 ~ user:', user);
+              confirm_pass:
+                document.querySelector('#confirm_pass').value.trim() || '',
+            };
+            // console.log('🚀 ~ user:', user);
 
-        let isValidate = validation(user); // true || false
+            let isValidate = validation(user); // true || false
+            console.log('🚀 ~ isValidate:', isValidate);
 
-        if (isValidate) {
-          localStorage.setItem('user', JSON.stringify(user));
-          alert('you have been successfully signup ✔');
-        }
-      });
+            if (isValidate) {
+              localStorage.setItem('user', JSON.stringify(user));
+              alert('you have been successfully signup ✔');
+            }
+          });
+      }
     });
 
     const validation = (data) => {
@@ -158,7 +185,7 @@
       }
 
       let passRegx =
-        /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@&%!$^])[A-Za-z\d@&%!$^]{8,15}$/;
+        /^(?=.[A-Z])(?=.[a-z])(?=.\d)(?=.[@&%!$^])[A-Za-z\d@&%!$^]{8,15}$/;
 
       if (!data.pass) {
         msg[3].innerHTML = 'Password is required!';
@@ -178,6 +205,8 @@
         msg[4].innerHTML = '';
       }
       // gender
+
+      return isValid;
     };
   </script>
 </html>
