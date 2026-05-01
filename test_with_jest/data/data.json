@@ -1,0 +1,34 @@
+{
+    
+    "dummy":[
+        {
+        "id":1,
+        "name":"abhishek",
+        "age":22,
+        "isMarried":"false"
+
+},
+ {
+        "id":2,
+        "name":"abhi",
+        "age":21,
+        "isMarried":"false"
+
+},
+{
+        "id":3,
+        "name":"harsh",
+        "age":22,
+        "isMarried":"false"
+
+},
+{
+        "id":4,
+        "name":"shivam",
+        "age":60,
+        "isMarried":"true"
+
+}
+
+]
+}
