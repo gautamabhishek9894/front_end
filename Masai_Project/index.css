@@ -1,0 +1,14 @@
+.navbar>{
+    width:600;
+    height: 300;
+    border: 2px  solid tomato;
+    border-radius: 10px;
+    background: #000;
+     height: inherit;
+        display: flex;
+        align-items: center; 
+        justify-content: center;
+        gap: 15px;
+
+    
+}
