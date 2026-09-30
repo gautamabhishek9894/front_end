@@ -1,0 +1,245 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6f8;
+  color: #222;
+}
+
+
+/* =========================
+   MAIN APP CONTAINER
+   className='app-container'
+========================= */
+
+.app-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+
+  background: white;
+
+  border-radius: 12px;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+/* =========================
+   HEADING
+   <h1>
+========================= */
+
+.app-container h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+
+/* =========================
+   EXPENSE FORM
+   className='expense-form'
+========================= */
+
+.expense-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+/* =========================
+   FORM INPUTS
+========================= */
+
+.expense-form input {
+  width: 100%;
+  padding: 12px;
+
+  border: 1px solid #ccc;
+  border-radius: 6px;
+
+  font-size: 16px;
+
+  outline: none;
+}
+
+
+/* Input focus */
+
+.expense-form input:focus {
+  border-color: #4caf50;
+}
+
+
+/* =========================
+   FORM BUTTON
+========================= */
+
+.expense-form button {
+  padding: 12px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: #4caf50;
+  color: white;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+
+/* Button hover */
+
+.expense-form button:hover {
+  background: #43a047;
+}
+
+
+/* =========================
+   TOTAL EXPENSE
+   className='Total'
+========================= */
+
+.Total {
+  margin-top: 25px;
+  margin-bottom: 20px;
+
+  padding: 15px;
+
+  background: #f1f8e9;
+
+  border-radius: 8px;
+
+  text-align: center;
+
+  color: #2e7d32;
+}
+
+
+/* =========================
+   EXPENSE LIST
+   className='expense-list'
+========================= */
+
+.expense-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+/* =========================
+   EXPENSE ITEM
+   className='expense-item'
+========================= */
+
+.expense-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 15px;
+
+  background: #f8f9fa;
+
+  border: 1px solid #ddd;
+
+  border-radius: 8px;
+}
+
+
+/* =========================
+   EXPENSE ITEM TEXT
+========================= */
+
+.expense-item span:first-child {
+  font-weight: bold;
+  color: #333;
+}
+
+
+/* Amount */
+
+.expense-item span:nth-child(2) {
+  font-weight: bold;
+  color: #e53935;
+}
+
+
+/* =========================
+   DELETE BUTTON
+========================= */
+
+.expense-item button {
+  border: none;
+
+  background: transparent;
+
+  font-size: 18px;
+
+  cursor: pointer;
+}
+
+
+/* Delete button hover */
+
+.expense-item button:hover {
+  transform: scale(1.15);
+}
+
+
+/* =========================
+   NO EXPENSE MESSAGE
+   className='no-expense'
+========================= */
+
+.no-expense {
+  text-align: center;
+
+  padding: 20px;
+
+  color: #777;
+
+  font-size: 16px;
+
+  background: #f8f9fa;
+
+  border-radius: 8px;
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 600px) {
+
+  .app-container {
+    width: 90%;
+    margin: 30px auto;
+    padding: 20px;
+  }
+
+  .app-container h1 {
+    font-size: 24px;
+  }
+
+  .expense-item {
+    gap: 10px;
+  }
+
+}
