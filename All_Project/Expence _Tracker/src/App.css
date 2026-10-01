@@ -11,7 +11,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: #f4f6f8;
-  color: #222;
+  color: #3d1818;
 }
 
 
@@ -78,7 +78,7 @@ body {
 /* Input focus */
 
 .expense-form input:focus {
-  border-color: #4caf50;
+  border-color: #4db551;
 }
 
 
